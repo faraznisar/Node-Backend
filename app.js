@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 
 const HttpError = require('./models/http-error')
 const placesRoutes = require('./routes/places-routes')
@@ -26,5 +27,14 @@ app.use((error, req, res, next) => {
     res.status(error.code || 500)
     res.json({ message: error.message || 'An unknown error occured!' })
 })
+mongoose
+    .connect('mongodb+srv://Faraz:databaseequinix@cluster0-eyj0b.mongodb.net/place?retryWrites=true&w=majority', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+    .then(() => {
+        app.listen(5000)
+    }).catch(err => {
+        console.log(err)
+    })
 
-app.listen(5000)

@@ -21,7 +21,7 @@ router.get('/:pid', placesControllers.getPlaceById)
 //         return p.creator === userId
 //     })
 //     res.json({ place })
-// })
+// }) 
 
 router.get('/user/:uid', placesControllers.getPlacesByUserId)
 
