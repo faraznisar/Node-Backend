@@ -89,7 +89,10 @@ const login = async (req, res, next) => {
         return next(error)
     }
 
-    res.json({ message: 'logged In' })
+    res.json({
+        message: 'logged In',
+        user: existingUser.toObject({ getters: true })
+    })
 
 }
 
