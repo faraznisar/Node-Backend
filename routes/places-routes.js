@@ -10,7 +10,7 @@ router.get('/:pid', placesControllers.getPlaceById);
 
 router.get('/user/:uid', placesControllers.getPlacesByUserId);
 
-router.use(checkAuth); p
+router.use(checkAuth);
 
 router.post(
     '/',
